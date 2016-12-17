@@ -11,10 +11,10 @@
       "variables-before-functions"
     ],
     "no-any": false,
-    "no-inferrable-types": false,
+    "no-inferrable-types": [],
     "no-internal-module": true,
     "no-var-requires": false,
-    "typedef": false,
+    "typedef": [],
     "typedef-whitespace": [
       true,
       {
@@ -88,15 +88,15 @@
       }
     ],
 
-    "align": false,
+    "align": [],
     "class-name": true,
     "comment-format": [
       true,
       "check-space"
     ],
-    "interface-name": false,
+    "interface-name": [],
     "jsdoc-format": true,
-    "no-consecutive-blank-lines": false,
+    "no-consecutive-blank-lines": [],
     "one-line": [
       false,
       "check-open-brace",
@@ -107,7 +107,7 @@
     ],
     "quotemark": [
       true,
-      "single",
+      "double",
       "avoid-escape"
     ],
     "semicolon": [true, "always"],
