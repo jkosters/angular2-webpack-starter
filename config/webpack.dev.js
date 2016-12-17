@@ -2,24 +2,24 @@
  * @author: @AngularClass
  */
 
-const helpers = require('./helpers');
-const webpackMerge = require('webpack-merge'); // used to merge webpack configs
-const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
+const helpers = require("./helpers");
+const webpackMerge = require("webpack-merge"); // used to merge webpack configs
+const commonConfig = require("./webpack.common.js"); // the settings that are common to prod and dev
 
 /**
  * Webpack Plugins
  */
-const DefinePlugin = require('webpack/lib/DefinePlugin');
-const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const DefinePlugin = require("webpack/lib/DefinePlugin");
+const NamedModulesPlugin = require("webpack/lib/NamedModulesPlugin");
+const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
 
 /**
  * Webpack Constants
  */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-const HOST = process.env.HOST || 'localhost';
+const ENV = process.env.ENV = process.env.NODE_ENV = "development";
+const HOST = process.env.HOST || "localhost";
 const PORT = process.env.PORT || 3000;
-const HMR = helpers.hasProcessFlag('hot');
+const HMR = helpers.hasProcessFlag("hot");
 const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
   port: PORT,
@@ -41,7 +41,7 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#devtool
      * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
      */
-    devtool: 'cheap-module-source-map',
+    devtool: "cheap-module-source-map",
 
     /**
      * Options affecting the output of the compilation.
@@ -55,7 +55,7 @@ module.exports = function (options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#output-path
        */
-      path: helpers.root('dist'),
+      path: helpers.root("dist"),
 
       /**
        * Specifies the name of each output file on disk.
@@ -63,7 +63,7 @@ module.exports = function (options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#output-filename
        */
-      filename: '[name].bundle.js',
+      filename: "[name].bundle.js",
 
       /**
        * The filename of the SourceMaps for the JavaScript files.
@@ -71,17 +71,17 @@ module.exports = function (options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
        */
-      sourceMapFilename: '[name].map',
+      sourceMapFilename: "[name].map",
 
       /** The filename of non-entry chunks as relative path
        * inside the output.path directory.
        *
        * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
        */
-      chunkFilename: '[id].chunk.js',
+      chunkFilename: "[id].chunk.js",
 
-      library: 'ac_[name]',
-      libraryTarget: 'var',
+      library: "ac_[name]",
+      libraryTarget: "var",
     },
 
     plugins: [
@@ -154,7 +154,7 @@ module.exports = function (options) {
      */
     node: {
       global: true,
-      crypto: 'empty',
+      crypto: "empty",
       process: true,
       module: false,
       clearImmediate: false,

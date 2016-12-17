@@ -2,21 +2,21 @@
  * @author: @AngularClass
  */
 
-const helpers = require('./helpers');
-const path = require('path');
+const helpers = require("./helpers");
+const path = require("path");
 
 /**
  * Webpack Plugins
  */
-const ProvidePlugin = require('webpack/lib/ProvidePlugin');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const ProvidePlugin = require("webpack/lib/ProvidePlugin");
+const DefinePlugin = require("webpack/lib/DefinePlugin");
+const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
+const ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
 
 /**
  * Webpack Constants
  */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
+const ENV = process.env.ENV = process.env.NODE_ENV = "test";
 
 /**
  * Webpack configuration
@@ -32,7 +32,7 @@ module.exports = function (options) {
      * Do not change, leave as is or it wont work.
      * See: https://github.com/webpack/karma-webpack#source-maps
      */
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
 
     /**
      * Options affecting the resolving of modules.
@@ -46,12 +46,12 @@ module.exports = function (options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
        */
-      extensions: ['.ts', '.js'],
+      extensions: [".ts", ".js"],
 
       /**
        * Make sure root is src
        */
-      modules: [ path.resolve(__dirname, 'src'), 'node_modules' ]
+      modules: [ path.resolve(__dirname, "src"), "node_modules" ]
 
     },
 
@@ -74,13 +74,13 @@ module.exports = function (options) {
          * See: https://github.com/webpack/source-map-loader
          */
         {
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.js$/,
-          loader: 'source-map-loader',
+          loader: "source-map-loader",
           exclude: [
             // these packages have problems with their sourcemaps
-            helpers.root('node_modules/rxjs'),
-            helpers.root('node_modules/@angular')
+            helpers.root("node_modules/rxjs"),
+            helpers.root("node_modules/@angular")
           ]
         },
 
@@ -91,7 +91,7 @@ module.exports = function (options) {
          */
         {
           test: /\.ts$/,
-          loader: 'awesome-typescript-loader',
+          loader: "awesome-typescript-loader",
           query: {
             // use inline sourcemaps for "karma-remap-coverage" reporter
             sourceMap: false,
@@ -114,8 +114,8 @@ module.exports = function (options) {
          */
         {
           test: /\.json$/,
-          loader: 'json-loader',
-          exclude: [helpers.root('src/index.html')]
+          loader: "json-loader",
+          exclude: [helpers.root("src/index.html")]
         },
 
         /**
@@ -126,8 +126,8 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
-          loader: ['to-string-loader', 'css-loader'],
-          exclude: [helpers.root('src/index.html')]
+          loader: ["to-string-loader", "css-loader"],
+          exclude: [helpers.root("src/index.html")]
         },
 
         /**
@@ -138,8 +138,8 @@ module.exports = function (options) {
          */
         {
           test: /\.html$/,
-          loader: 'raw-loader',
-          exclude: [helpers.root('src/index.html')]
+          loader: "raw-loader",
+          exclude: [helpers.root("src/index.html")]
         },
 
         /**
@@ -149,10 +149,10 @@ module.exports = function (options) {
          * See: https://github.com/deepsweet/istanbul-instrumenter-loader
          */
         {
-          enforce: 'post',
+          enforce: "post",
           test: /\.(js|ts)$/,
-          loader: 'istanbul-instrumenter-loader',
-          include: helpers.root('src'),
+          loader: "istanbul-instrumenter-loader",
+          include: helpers.root("src"),
           exclude: [
             /\.(e2e|spec)\.ts$/,
             /node_modules/
@@ -199,7 +199,7 @@ module.exports = function (options) {
       new ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
         /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-        helpers.root('src'), // location of your src
+        helpers.root("src"), // location of your src
         {
           // your Angular Async Route paths relative to this root directory
         }
@@ -228,7 +228,7 @@ module.exports = function (options) {
     node: {
       global: true,
       process: false,
-      crypto: 'empty',
+      crypto: "empty",
       module: false,
       clearImmediate: false,
       setImmediate: false

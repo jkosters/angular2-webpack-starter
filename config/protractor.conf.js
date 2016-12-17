@@ -2,20 +2,20 @@
  * @author: @AngularClass
  */
 
-require('ts-node/register');
-var helpers = require('./helpers');
+require("ts-node/register");
+var helpers = require("./helpers");
 
 exports.config = {
-  baseUrl: 'http://localhost:3000/',
+  baseUrl: "http://localhost:3000/",
 
   // use `npm run e2e`
   specs: [
-    helpers.root('src/**/**.e2e.ts'),
-    helpers.root('src/**/*.e2e.ts')
+    helpers.root("src/**/**.e2e.ts"),
+    helpers.root("src/**/*.e2e.ts")
   ],
   exclude: [],
 
-  framework: 'jasmine2',
+  framework: "jasmine2",
 
   allScriptsTimeout: 110000,
 
@@ -29,9 +29,9 @@ exports.config = {
   directConnect: true,
 
   capabilities: {
-    'browserName': 'chrome',
+    'browserName': "chrome",
     'chromeOptions': {
-      'args': ['show-fps-counter=true']
+      'args': ["show-fps-counter=true"]
     }
   },
 

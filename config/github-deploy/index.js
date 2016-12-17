@@ -1,28 +1,28 @@
-const execSync = require('child_process').execSync;
-const webpackMerge = require('webpack-merge'); // used to merge webpack configs
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const helpers = require('../helpers');
+const execSync = require("child_process").execSync;
+const webpackMerge = require("webpack-merge"); // used to merge webpack configs
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const helpers = require("../helpers");
 
 const REPO_NAME_RE = /Push {2}URL: https:\/\/github\.com\/.*\/(.*)\.git/;
 
 function getWebpackConfigModule(options) {
   if (options.githubDev) {
-    return require('../webpack.dev.js');
+    return require("../webpack.dev.js");
   } else if (options.githubProd) {
-    return require('../webpack.prod.js');
+    return require("../webpack.prod.js");
   } else {
-    throw new Error('Invalid compile option.');
+    throw new Error("Invalid compile option.");
   }
 }
 
 function getRepoName(remoteName) {
-  remoteName = remoteName || 'origin';
+  remoteName = remoteName || "origin";
 
-  var stdout = execSync('git remote show ' + remoteName),
+  var stdout = execSync("git remote show " + remoteName),
       match = REPO_NAME_RE.exec(stdout);
 
   if (!match) {
-    throw new Error('Could not find a repository on remote ' + remoteName);
+    throw new Error("Could not find a repository on remote " + remoteName);
   } else {
     return match[1];
   }
@@ -52,8 +52,8 @@ function stripTrailing(str, char) {
  * @returns {string}
  */
 function safeUrl(url) {
-  const stripped = stripTrailing(url || '', '/');
-  return stripped ? stripped + '/' : '';
+  const stripped = stripTrailing(url || "", "/");
+  return stripped ? stripped + "/" : "";
 }
 
 function replaceHtmlWebpackPlugin(plugins, ghRepoName) {
@@ -67,7 +67,7 @@ function replaceHtmlWebpackPlugin(plugins, ghRepoName) {
          * This also means all resource URIs (CSS/Images/JS) will have this prefix added by the browser
          * unless they are absolute (start with '/'). We will handle it via `output.publicPath`
          */
-        baseUrl: '/' + ghRepoName + '/' + safeUrl(htmlPlug.options.metadata.baseUrl)
+        baseUrl: "/" + ghRepoName + "/" + safeUrl(htmlPlug.options.metadata.baseUrl)
       });
 
       // add the new instance of the html plugin.

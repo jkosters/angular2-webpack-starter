@@ -1,19 +1,19 @@
 /**
  * @author: @AngularClass
  */
-const fs = require('fs');
-const path = require('path');
-const helpers = require('./helpers');
-const ghDeploy = require('./github-deploy');
-const webpackMerge = require('webpack-merge'); // used to merge webpack configs
-const ghpages = require('gh-pages');
+const fs = require("fs");
+const path = require("path");
+const helpers = require("./helpers");
+const ghDeploy = require("./github-deploy");
+const webpackMerge = require("webpack-merge"); // used to merge webpack configs
+const ghpages = require("gh-pages");
 
 
 /**
  * Webpack Constants
  */
-const GIT_REMOTE_NAME = 'origin';
-const COMMIT_MESSAGE = 'Updates';
+const GIT_REMOTE_NAME = "origin";
+const COMMIT_MESSAGE = "Updates";
 const GH_REPO_NAME = ghDeploy.getRepoName(GIT_REMOTE_NAME);
 
 module.exports = function (options) {
@@ -38,13 +38,13 @@ module.exports = function (options) {
       * Prefixing so every resource will be absolute (otherwise it will be url.com/repoName/repoName...
       * Suffixing since chunks will not do it automatically (testes against about page)
       */
-     publicPath: '/' + GH_REPO_NAME + '/' + ghDeploy.safeUrl(webpackConfig.output.publicPath)
+     publicPath: "/" + GH_REPO_NAME + "/" + ghDeploy.safeUrl(webpackConfig.output.publicPath)
    },
 
    plugins: [
      function() {
-       this.plugin('done', function(stats) {
-         console.log('Starting deployment to GitHub.');
+       this.plugin("done", function(stats) {
+         console.log("Starting deployment to GitHub.");
 
          const logger = function (msg) {
            console.log(msg);
@@ -61,14 +61,14 @@ module.exports = function (options) {
          // but, as of now, it also ignores "vendors*" files.
          // This means vendor.bundle.js or vendor.[chunk].bundle.js will return 404.
          // this is the fix for now.
-         fs.writeFileSync(path.join(webpackConfig.output.path, '.nojekyll'), '');
+         fs.writeFileSync(path.join(webpackConfig.output.path, ".nojekyll"), "");
 
          ghpages.publish(webpackConfig.output.path, options, function(err) {
            if (err) {
-             console.log('GitHub deployment done. STATUS: ERROR.');
+             console.log("GitHub deployment done. STATUS: ERROR.");
              throw err;
            } else {
-             console.log('GitHub deployment done. STATUS: SUCCESS.');
+             console.log("GitHub deployment done. STATUS: SUCCESS.");
            }
          });
        });

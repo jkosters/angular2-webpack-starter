@@ -2,31 +2,31 @@
  * @author: @AngularClass
  */
 
-const webpack = require('webpack');
-const helpers = require('./helpers');
+const webpack = require("webpack");
+const helpers = require("./helpers");
 
 /*
  * Webpack Plugins
  */
 // problem with copy-webpack-plugin
-const AssetsPlugin = require('assets-webpack-plugin');
-const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
-const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
-const HtmlElementsPlugin = require('./html-elements-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const AssetsPlugin = require("assets-webpack-plugin");
+const NormalModuleReplacementPlugin = require("webpack/lib/NormalModuleReplacementPlugin");
+const ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
+const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ForkCheckerPlugin = require("awesome-typescript-loader").ForkCheckerPlugin;
+const HtmlElementsPlugin = require("./html-elements-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
+const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
 /*
  * Webpack Constants
  */
-const HMR = helpers.hasProcessFlag('hot');
+const HMR = helpers.hasProcessFlag("hot");
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
-  baseUrl: '/',
+  title: "Angular2 Webpack Starter by @gdi2290 from @AngularClass",
+  baseUrl: "/",
   isDevServer: helpers.isWebpackDevServer()
 };
 
@@ -36,7 +36,7 @@ const METADATA = {
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
 module.exports = function (options) {
-  isProd = options.env === 'production';
+  isProd = options.env === "production";
   return {
 
     /*
@@ -56,9 +56,9 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'vendor':    './src/vendor.browser.ts',
-      'main':      './src/main.browser.ts'
+      'polyfills': "./src/polyfills.browser.ts",
+      'vendor':    "./src/vendor.browser.ts",
+      'main':      "./src/main.browser.ts"
 
     },
 
@@ -74,10 +74,10 @@ module.exports = function (options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
        */
-      extensions: ['.ts', '.js', '.json'],
+      extensions: [".ts", ".js", ".json"],
 
       // An array of directory names to be resolved to the current directory
-      modules: [helpers.root('src'), helpers.root('node_modules')],
+      modules: [helpers.root("src"), helpers.root("node_modules")],
 
     },
 
@@ -100,10 +100,10 @@ module.exports = function (options) {
         {
           test: /\.ts$/,
           use: [
-            '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
-            'awesome-typescript-loader',
-            'angular2-template-loader',
-            'angular-router-loader'
+            "@angularclass/hmr-loader?pretty=" + !isProd + "&prod=" + isProd,
+            "awesome-typescript-loader",
+            "angular2-template-loader",
+            "angular-router-loader"
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
         },
@@ -115,7 +115,7 @@ module.exports = function (options) {
          */
         {
           test: /\.json$/,
-          use: 'json-loader'
+          use: "json-loader"
         },
 
         /*
@@ -125,7 +125,7 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
-          use: ['to-string-loader', 'css-loader']
+          use: ["to-string-loader", "css-loader"]
         },
 
         /* Raw loader support for *.html
@@ -135,15 +135,15 @@ module.exports = function (options) {
          */
         {
           test: /\.html$/,
-          use: 'raw-loader',
-          exclude: [helpers.root('src/index.html')]
+          use: "raw-loader",
+          exclude: [helpers.root("src/index.html")]
         },
 
         /* File loader for supporting images, for example, in CSS files.
          */
         {
           test: /\.(jpg|png|gif)$/,
-          use: 'file-loader'
+          use: "file-loader"
         },
 
       ],
@@ -157,8 +157,8 @@ module.exports = function (options) {
      */
     plugins: [
       new AssetsPlugin({
-        path: helpers.root('dist'),
-        filename: 'webpack-assets.json',
+        path: helpers.root("dist"),
+        filename: "webpack-assets.json",
         prettyPrint: true
       }),
 
@@ -178,7 +178,7 @@ module.exports = function (options) {
        * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
        */
       new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
+        name: ["polyfills", "vendor"].reverse()
       }),
 
       /**
@@ -191,7 +191,7 @@ module.exports = function (options) {
       new ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
         /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-        helpers.root('src'), // location of your src
+        helpers.root("src"), // location of your src
         {
           // your Angular Async Route paths relative to this root directory
         }
@@ -206,8 +206,8 @@ module.exports = function (options) {
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
       new CopyWebpackPlugin([
-        { from: 'src/assets', to: 'assets' },
-        { from: 'src/meta'}
+        { from: "src/assets", to: "assets" },
+        { from: "src/meta"}
       ]),
 
 
@@ -220,11 +220,11 @@ module.exports = function (options) {
        * See: https://github.com/ampedandwired/html-webpack-plugin
        */
       new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: "src/index.html",
         title: METADATA.title,
-        chunksSortMode: 'dependency',
+        chunksSortMode: "dependency",
         metadata: METADATA,
-        inject: 'head'
+        inject: "head"
       }),
 
       /*
@@ -235,7 +235,7 @@ module.exports = function (options) {
        * See: https://github.com/numical/script-ext-html-webpack-plugin
        */
       new ScriptExtHtmlWebpackPlugin({
-        defaultAttribute: 'defer'
+        defaultAttribute: "defer"
       }),
 
       /*
@@ -261,7 +261,7 @@ module.exports = function (options) {
        * Dependencies: HtmlWebpackPlugin
        */
       new HtmlElementsPlugin({
-        headTags: require('./head-config.common')
+        headTags: require("./head-config.common")
       }),
 
       /**
@@ -274,23 +274,23 @@ module.exports = function (options) {
       // Fix Angular 2
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)async/,
-        helpers.root('node_modules/@angular/core/src/facade/async.js')
+        helpers.root("node_modules/@angular/core/src/facade/async.js")
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)collection/,
-        helpers.root('node_modules/@angular/core/src/facade/collection.js')
+        helpers.root("node_modules/@angular/core/src/facade/collection.js")
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)errors/,
-        helpers.root('node_modules/@angular/core/src/facade/errors.js')
+        helpers.root("node_modules/@angular/core/src/facade/errors.js")
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)lang/,
-        helpers.root('node_modules/@angular/core/src/facade/lang.js')
+        helpers.root("node_modules/@angular/core/src/facade/lang.js")
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)math/,
-        helpers.root('node_modules/@angular/core/src/facade/math.js')
+        helpers.root("node_modules/@angular/core/src/facade/math.js")
       ),
     ],
 
@@ -302,7 +302,7 @@ module.exports = function (options) {
      */
     node: {
       global: true,
-      crypto: 'empty',
+      crypto: "empty",
       process: true,
       module: false,
       clearImmediate: false,

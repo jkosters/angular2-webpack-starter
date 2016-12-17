@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9FCA88E5-74E0-4B24-A780-5CB3C20868CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ClassLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>angular2_webpack_starter</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include=".github\CONTRIBUTING.md" />
+    <None Include=".github\ISSUE_TEMPLATE.md" />
+    <None Include=".github\PULL_REQUEST_TEMPLATE.md" />
+    <None Include=".gitignore" />
+    <None Include=".nvmrc" />
+    <None Include=".travis.yml" />
+    <None Include="README.md" />
+    <None Include="src\assets\css\.gitkeep" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".vscode\launch.json" />
+    <Content Include=".vscode\settings.json" />
+    <Content Include="config\empty.js" />
+    <Content Include="config\github-deploy\index.js" />
+    <Content Include="config\head-config.common.js" />
+    <Content Include="config\helpers.js" />
+    <Content Include="config\html-elements-plugin\index.js" />
+    <Content Include="config\karma.conf.js" />
+    <Content Include="config\protractor.conf.js" />
+    <Content Include="config\spec-bundle.js" />
+    <Content Include="config\webpack.common.js" />
+    <Content Include="config\webpack.dev.js" />
+    <Content Include="config\webpack.github-deploy.js" />
+    <Content Include="config\webpack.prod.js" />
+    <Content Include="config\webpack.test.js" />
+    <Content Include="karma.conf.js" />
+    <Content Include="package.json" />
+    <Content Include="protractor.conf.js" />
+    <Content Include="src\app\app.component.css" />
+    <Content Include="src\app\home\home.component.css" />
+    <Content Include="src\app\home\home.component.html" />
+    <Content Include="src\assets\data.json" />
+    <Content Include="src\assets\humans.txt" />
+    <Content Include="src\assets\icon\android-icon-144x144.png" />
+    <Content Include="src\assets\icon\android-icon-192x192.png" />
+    <Content Include="src\assets\icon\android-icon-36x36.png" />
+    <Content Include="src\assets\icon\android-icon-48x48.png" />
+    <Content Include="src\assets\icon\android-icon-72x72.png" />
+    <Content Include="src\assets\icon\android-icon-96x96.png" />
+    <Content Include="src\assets\icon\apple-icon-114x114.png" />
+    <Content Include="src\assets\icon\apple-icon-120x120.png" />
+    <Content Include="src\assets\icon\apple-icon-144x144.png" />
+    <Content Include="src\assets\icon\apple-icon-152x152.png" />
+    <Content Include="src\assets\icon\apple-icon-180x180.png" />
+    <Content Include="src\assets\icon\apple-icon-57x57.png" />
+    <Content Include="src\assets\icon\apple-icon-60x60.png" />
+    <Content Include="src\assets\icon\apple-icon-72x72.png" />
+    <Content Include="src\assets\icon\apple-icon-76x76.png" />
+    <Content Include="src\assets\icon\apple-icon-precomposed.png" />
+    <Content Include="src\assets\icon\apple-icon.png" />
+    <Content Include="src\assets\icon\browserconfig.xml" />
+    <Content Include="src\assets\icon\favicon-16x16.png" />
+    <Content Include="src\assets\icon\favicon-32x32.png" />
+    <Content Include="src\assets\icon\favicon-96x96.png" />
+    <Content Include="src\assets\icon\favicon.ico" />
+    <Content Include="src\assets\icon\ms-icon-144x144.png" />
+    <Content Include="src\assets\icon\ms-icon-150x150.png" />
+    <Content Include="src\assets\icon\ms-icon-310x310.png" />
+    <Content Include="src\assets\icon\ms-icon-70x70.png" />
+    <Content Include="src\assets\img\angular-logo.png" />
+    <Content Include="src\assets\img\angularclass-avatar.png" />
+    <Content Include="src\assets\img\angularclass-logo.png" />
+    <Content Include="src\assets\manifest.json" />
+    <Content Include="src\assets\mock-data\mock-data.json" />
+    <Content Include="src\assets\robots.txt" />
+    <Content Include="src\assets\service-worker.js" />
+    <Content Include="src\index.html" />
+    <Content Include="src\meta\humans.txt" />
+    <Content Include="src\meta\robots.txt" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+    <Content Include="typedoc.json" />
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\+detail\detail.component.ts" />
+    <TypeScriptCompile Include="src\app\+detail\index.ts" />
+    <TypeScriptCompile Include="src\app\about\about.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\about\about.component.ts" />
+    <TypeScriptCompile Include="src\app\about\index.ts" />
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.e2e.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\app.resolver.ts" />
+    <TypeScriptCompile Include="src\app\app.routes.ts" />
+    <TypeScriptCompile Include="src\app\app.service.ts" />
+    <TypeScriptCompile Include="src\app\environment.ts" />
+    <TypeScriptCompile Include="src\app\home\home.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\home\home.e2e.ts" />
+    <TypeScriptCompile Include="src\app\home\index.ts" />
+    <TypeScriptCompile Include="src\app\home\title\index.ts" />
+    <TypeScriptCompile Include="src\app\home\title\title.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\home\title\title.service.ts" />
+    <TypeScriptCompile Include="src\app\home\x-large\index.ts" />
+    <TypeScriptCompile Include="src\app\home\x-large\x-large.directive.spec.ts" />
+    <TypeScriptCompile Include="src\app\home\x-large\x-large.directive.ts" />
+    <TypeScriptCompile Include="src\app\index.ts" />
+    <TypeScriptCompile Include="src\app\no-content\index.ts" />
+    <TypeScriptCompile Include="src\app\no-content\no-content.component.ts" />
+    <TypeScriptCompile Include="src\custom-typings.d.ts" />
+    <TypeScriptCompile Include="src\main.browser.ts" />
+    <TypeScriptCompile Include="src\polyfills.browser.ts" />
+    <TypeScriptCompile Include="src\vendor.browser.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

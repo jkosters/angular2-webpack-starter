@@ -1,23 +1,23 @@
-import { NgModule, ApplicationRef } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { NgModule, ApplicationRef } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import { RouterModule, PreloadAllModules } from "@angular/router";
+import { removeNgStyles, createNewHosts, createInputTransfer } from "@angularclass/hmr";
 
 /*
  * Platform and Environment providers/directives/pipes
  */
-import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+import { ENV_PROVIDERS } from "./environment";
+import { ROUTES } from "./app.routes";
 // App is our top level component
-import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-import { XLarge } from './home/x-large';
+import { AppComponent } from "./app.component";
+import { APP_RESOLVER_PROVIDERS } from "./app.resolver";
+import { AppState, InternalStateType } from "./app.service";
+import { HomeComponent } from "./home";
+import { AboutComponent } from "./about";
+import { NoContentComponent } from "./no-content";
+import { XLarge } from "./home/x-large";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -59,11 +59,11 @@ export class AppModule {
 
   hmrOnInit(store: StoreType) {
     if (!store || !store.state) return;
-    console.log('HMR store', JSON.stringify(store, null, 2));
+    console.log("HMR store", JSON.stringify(store, null, 2));
     // set state
     this.appState._state = store.state;
     // set input values
-    if ('restoreInputValues' in store) {
+    if ("restoreInputValues" in store) {
       let restoreInputValues = store.restoreInputValues;
       setTimeout(restoreInputValues);
     }

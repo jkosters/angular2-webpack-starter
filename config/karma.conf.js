@@ -3,19 +3,19 @@
  */
 
 module.exports = function(config) {
-  var testWebpackConfig = require('./webpack.test.js')({env: 'test'});
+  var testWebpackConfig = require("./webpack.test.js")({env: "test"});
 
   var configuration = {
 
     // base path that will be used to resolve all patterns (e.g. files, exclude)
-    basePath: '',
+    basePath: "",
 
     /*
      * Frameworks to use
      *
      * available frameworks: https://npmjs.org/browse/keyword/karma-adapter
      */
-    frameworks: ['jasmine'],
+    frameworks: ["jasmine"],
 
     // list of files to exclude
     exclude: [ ],
@@ -25,29 +25,29 @@ module.exports = function(config) {
      *
      * we are building the test environment in ./spec-bundle.js
      */
-    files: [ { pattern: './config/spec-bundle.js', watched: false } ],
+    files: [ { pattern: "./config/spec-bundle.js", watched: false } ],
 
     /*
      * preprocess matching files before serving them to the browser
      * available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
      */
-    preprocessors: { './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap'] },
+    preprocessors: { './config/spec-bundle.js': ["coverage", "webpack", "sourcemap"] },
 
     // Webpack Config at ./webpack.test.js
     webpack: testWebpackConfig,
 
     coverageReporter: {
-      type: 'in-memory'
+      type: "in-memory"
     },
 
     remapCoverageReporter: {
       'text-summary': null,
-      json: './coverage/coverage.json',
-      html: './coverage/html'
+      json: "./coverage/coverage.json",
+      html: "./coverage/html"
     },
 
     // Webpack please don't spam the console when running in karma!
-    webpackMiddleware: { stats: 'errors-only'},
+    webpackMiddleware: { stats: "errors-only"},
 
     /*
      * test results reporter to use
@@ -55,7 +55,7 @@ module.exports = function(config) {
      * possible values: 'dots', 'progress'
      * available reporters: https://npmjs.org/browse/keyword/karma-reporter
      */
-    reporters: [ 'mocha', 'coverage', 'remap-coverage' ],
+    reporters: [ "mocha", "coverage", "remap-coverage" ],
 
     // web server port
     port: 9876,
@@ -77,13 +77,13 @@ module.exports = function(config) {
      * available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
      */
     browsers: [
-      'Chrome'
+      "Chrome"
     ],
 
     customLaunchers: {
       ChromeTravisCi: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
+        base: "Chrome",
+        flags: ["--no-sandbox"]
       }
     },
 
@@ -96,7 +96,7 @@ module.exports = function(config) {
 
   if (process.env.TRAVIS){
     configuration.browsers = [
-      'ChromeTravisCi'
+      "ChromeTravisCi"
     ];
   }
 
